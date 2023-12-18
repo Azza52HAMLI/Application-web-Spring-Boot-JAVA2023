@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Reservation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 500px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        div.elem-group {
+            margin: 20px 0;
+        }
+
+        div.elem-group.inlined {
+            width: 49%;
+            display: inline-block;
+            float: left;
+            margin-left: 1%;
+        }
+
+        label {
+            display: block;
+            font-family: 'Nanum Gothic';
+            padding-bottom: 10px;
+            font-size: 1.25em;
+        }
+
+        input,
+        select,
+        textarea {
+            border-radius: 2px;
+            border: 2px solid #777;
+            box-sizing: border-box;
+            font-size: 1.50em;
+            font-family: 'Nanum Gothic';
+            width: 100%;
+            padding: 10px;
+        }
+
+        div.elem-group.inlined input {
+            width: 95%;
+            display: inline-block;
+        }
+
+        textarea {
+            height: 250px;
+        }
+
+        hr {
+            border: 1px dotted #ccc;
+        }
+
+        button {
+            height: 50px;
+            background: rgb(64, 0, 64);
+            border: none;
+            color: white;
+            font-size: 1.25em;
+            font-family: 'Nanum Gothic';
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border: 2px solid black;
+        }
+    </style>
+    <title>Reservation salle</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div >
+            <h1>Reservation</h1>
+        </div>
+        
+        <div class="card">
+            <form th:action="'/'+${id}+'/reservation/reserver'" name="myForm">
+				 <div class="elem-group">
+                    <label>Salle</label>
+                    <select id="room-selection" name="salle" required>
+                        <option>Selectionner une salle</option>
+                        <option th:each="s:${salles}" th:value="${s.numSalle}" th:text="${s}"></option>
+                    </select>
+                </div>
+                <hr>
+                <hr>
+                <div class="elem-group inlined">
+                    <label for="checkin-date">Date</label>
+                    <input type="date" id="checkin-date" name="date" required>
+                </div>
+                <div class="elem-group inlined">
+                    <label>Heur debut</label>
+                    <input type="time" id="h1" name="heurDebut" required>
+                </div>
+                <div class="elem-group inlined">
+                    <label>Heur fin</label>
+                    <input type="time" id="h2" name="heurFin" required>
+                </div>
+               
+                <button type="submit">Reserver</button>
+            </form>
+        </div>
+    </div>
+  
+</body>
+
+</html>

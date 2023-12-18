@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Ajouter un demandeur</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+           button {
+            height: 50px;
+            background: rgb(64, 0, 64);
+            border: none;
+            color: white;
+            font-size: 1.25em;
+            font-family: 'Nanum Gothic';
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div align=center>
+        <label>
+            <h1>Inscription Client </h1>
+        </label>
+    </div>
+    <hr>
+     <hr>
+     
+    <form method="get">
+        <table align="center">
+            <tr>
+                <td> Nom : </td>
+                <td><input type="text" name="Nom" />
+                </td>
+            </tr>
+            <tr>
+                <td>Adresse : </td>
+                <td><input type="text" name="Adresse"></input></td>
+            </tr>
+        </table>
+        <div align=center><button type="submit" formaction="/demandeur/Add/s'inscrire">s'inscrire</button></div>
+  
+    </form>
+</body>

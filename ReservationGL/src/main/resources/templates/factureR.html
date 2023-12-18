@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Facture</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #facture {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #facture td,
+        #facture th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #facture tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #facture tr:hover {
+            background-color: #ddd;
+        }
+
+        #facture th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div align=center>
+        <h1>Facture</h1>
+    </div>
+    <hr>
+    <table id="facture">
+        <tr>
+            <th>Numero</th>
+
+            <th>Date</th>
+            <th>nom demandeur</th>
+            <th>Salle</th>
+            <th>Montant</th>
+        </tr>
+        <tr>
+            <td th:text="${facture.numero}"></td>
+
+            <td th:text="${#temporals.format(facture.date,'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${demandeur.nom}"></td>
+            <td th:text="${salle.numSalle}"></td>
+            <td th:text="${facture.montant}"></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
